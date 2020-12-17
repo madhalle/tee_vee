@@ -49,4 +49,13 @@ class Show
     end
     character_array
   end
+
+  def actors_with_salaries_above(salary)
+    @characters.find_all do |character|
+      character.salary > salary
+    end
+    # @characters.map do |character|
+    #   character if character.salary > salary
+    # end.compact
+  end
 end

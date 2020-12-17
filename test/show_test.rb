@@ -38,4 +38,13 @@ class ShowTest<Minitest::Test
     assert_equal ["David Hasselhoff", "William Daniels"], knight_rider.actors
   end
 
+  def test_find_all_with_salary_above_given_number
+    kitt = Character.new({name: "KITT", actor: "William Daniels", salary: 1_000_000})
+    michael_knight = Character.new({name: "Michael Knight", actor: "David Hasselhoff", salary: 1_600_000})
+    michael_scott = Character.new({name: "Michael Scar", actor: "Steve Carell", salary: 1_400_000})
+    knight_rider = Show.new("Knight Rider", "Glen Larson", [michael_scott, kitt, michael_knight])
+
+    assert_equal [michael_scott, michael_knight], knight_rider.actors_with_salaries_above(1_200_000)
+  end
+
 end
